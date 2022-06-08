@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Budget from './components/Budget';
+import Remaining from './components/Remaining';
+import Total from './components/Total';
+import List from './components/List';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h1 className="mt-3">React Budget Tracker</h1>
+      <div className="row mt-3">
+        <div className="col-sm">
+          <Budget />
+        </div>
+        <div className="col-sm">
+          <Remaining />
+        </div>
+        <div className="col-sm">
+          <Total />
+        </div>
+      </div>
+      <h3 className="mt-3">Payments</h3>
+      <div className="row mt-3">
+        <div className="col-sm">
+          <List />
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
