@@ -9,7 +9,7 @@ import AddForm from './components/AddForm';
 const App = () => {
   return (
     <div className="container">
-      <h1 className="mt-3">React Budget Tracker</h1>
+      <h1 className="mt-3">Budget Tracker In React</h1>
       <div className="row mt-3">
         <div className="col-sm">
           <Budget />
