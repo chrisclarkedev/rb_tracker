@@ -1,5 +1,12 @@
 import { createContext, useReducer } from 'react';
 
+const AppReducer = (state, action) => {
+  switch (action.type) {
+    default:
+      return state;
+  }
+};
+
 const initialState = {
   budget: 3000,
   expenses: [
@@ -13,4 +20,6 @@ export const AppContext = createContext();
 
 // External Components need to be accessed
 
-const AppProvider = (props) => {};
+const AppProvider = (props) => {
+  const [state, dispatch] = useReducer(AppReducer, initialState);
+};
