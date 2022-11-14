@@ -20,6 +20,18 @@ export const AppContext = createContext();
 
 // External Components need to be accessed
 
-const AppProvider = (props) => {
+export const AppProvider = (props) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
+
+  return (
+    <AppContext.Provider
+      value={{
+        budget: state.budget,
+        expenses: state.expenses,
+        dispatch,
+      }}
+    >
+      {props.children}
+    </AppContext.Provider>
+  );
 };
