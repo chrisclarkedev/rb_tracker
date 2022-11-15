@@ -8,6 +8,7 @@ const AppReducer = (state, action) => {
   }
 };
 
+// Loaded when the App starts for the first time
 const initialState = {
   budget: 3000,
   expenses: [
@@ -28,7 +29,7 @@ export const AppProvider = (props) => {
     <AppContext.Provider
       value={{
         budget: state.budget,
-        expense: state.expenses,
+        expenses: state.expenses,
         dispatch,
       }}
     >
