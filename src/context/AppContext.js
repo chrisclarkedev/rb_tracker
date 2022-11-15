@@ -1,3 +1,4 @@
+import React from 'react';
 import { createContext, useReducer } from 'react';
 
 const AppReducer = (state, action) => {
@@ -27,7 +28,7 @@ export const AppProvider = (props) => {
     <AppContext.Provider
       value={{
         budget: state.budget,
-        expenses: state.expenses,
+        expense: state.expenses,
         dispatch,
       }}
     >
