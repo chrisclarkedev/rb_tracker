@@ -1,12 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { AppContext } from '../context/AppContext';
+import { v4 as uuidv4 } from 'uuid';
 
 const AddForm = () => {
+  const { dispatch } = useContext(AppContext);
+
   const [name, setName] = useState('');
   const [cost, setCost] = useState('');
 
   const onSubmit = (event) => {
     event.preventDefault();
-    alert('name' + name + ' cost' + cost);
+
+    const expense = {
+      // Will generate an ID everytime it is added to the list
+      id: uuidv4(),
+      name: name,
+      cost: parseInt(cost),
+    };
+    // Dispatcher goes off to AppContext
+    dispatch({
+      type: 'ADD_EXPENSE',
+      payload: expense,
+    });
   };
 
   return (

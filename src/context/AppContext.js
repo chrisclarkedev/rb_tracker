@@ -2,7 +2,14 @@ import React from 'react';
 import { createContext, useReducer } from 'react';
 
 const AppReducer = (state, action) => {
+  // Switch runs check action type returns new state, overrides states, takes copy of current expenses returns and updates app provider
+  // Mapping of action object
   switch (action.type) {
+    case 'ADD_EXPENSE':
+      return {
+        ...state,
+        expenses: [...state.expenses, action.payload],
+      };
     default:
       return state;
   }
