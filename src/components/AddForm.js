@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const AddForm = () => {
+  const [name, setName] = useState('');
+  const [cost, setCost] = useState('');
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+    alert('name' + name + ' cost' + cost);
+  };
+
   return (
-    <form>
+    <form onSubmit={onSubmit}>
       <div className="row">
         <div className="col-sm">
           <label for="name">Name</label>
@@ -11,6 +19,8 @@ const AddForm = () => {
             type="text"
             className="form-control"
             id="name"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
           ></input>
         </div>
         <div className="col-sm">
@@ -20,6 +30,8 @@ const AddForm = () => {
             type="text"
             className="form-control"
             id="cost"
+            value={cost}
+            onChange={(event) => setCost(event.target.value)}
           ></input>
         </div>
         <div className="col-sm">
