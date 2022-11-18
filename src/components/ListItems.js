@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { TiDelete } from 'react-icons/ti';
+import { AppContext } from '../context/AppContext';
 
 const ListItems = (props) => {
+  const { dispatch } = useContext(AppContext);
+
+  const handleDeleteExpense = () => {
+    dispatch({
+      type: 'DELETE_EXPENSE',
+      payload: props.id,
+    });
+  };
+
   return (
     // Passed down from List component
     <li className="list-group-item d-flex justify-content-between align-items-center">
@@ -10,7 +20,7 @@ const ListItems = (props) => {
         <span className="badge rounded-pill bg-primary mr-3">
           ${props.cost}
         </span>
-        <TiDelete size="1.5em"></TiDelete>
+        <TiDelete size="1.5em" onClick={handleDeleteExpense}></TiDelete>
       </div>
     </li>
   );

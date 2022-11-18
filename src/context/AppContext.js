@@ -10,6 +10,16 @@ const AppReducer = (state, action) => {
         ...state,
         expenses: [...state.expenses, action.payload],
       };
+
+    case 'DELETE_EXPENSE':
+      // Have to return complete state cases
+      // Will return a new array that does not have the expense that was deleted
+      return {
+        ...state,
+        expenses: state.expenses.filter(
+          (expense) => expense.id !== action.payload
+        ),
+      };
     default:
       return state;
   }
